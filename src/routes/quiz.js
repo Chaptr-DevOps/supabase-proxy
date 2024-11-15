@@ -98,11 +98,11 @@ module.exports = (supabase) => {
     // Answers endpoints
     router.get('/answers', async (req, res, next) => {
         try {
-            const { question_id } = req.query;
+            const { questionId } = req.query;
             let query = supabase.from('answers').select('*');
 
-            if (question_id) {
-                query = query.eq('question_id', question_id);
+            if (questionId) {
+                query = query.eq('question_id', questionId);
             }
 
             const { data, error } = await query;
